@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102a43">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <title>TempmoX</title>
+</head>
+<body>
+  <header><div><span class="mark">◈</span> <strong>TempmoX</strong><small>Environmental monitor</small></div><span id="source" class="badge">Loading</span></header>
+  <main>
+    <section class="hero"><div><p class="eyebrow">OFFICE MONITOR</p><h1>Know your space.</h1><p id="message">Connecting to the local monitor…</p></div><div id="status" class="status">Checking</div></section>
+    <section class="metrics">
+      <article class="metric"><span>Temperature</span><div><strong id="temperature">—</strong><em>°C</em></div><small id="temperature-meta">Awaiting a reading</small></article>
+      <article class="metric"><span>Humidity</span><div><strong id="humidity">—</strong><em>%</em></div><small id="humidity-meta">Awaiting a reading</small></article>
+      <article class="metric"><span>Last captured</span><div class="captured" id="captured">—</div><small id="polling">Polling status</small></article>
+    </section>
+    <section class="panel chart-panel"><div class="panel-title"><div><p class="eyebrow">TRENDS</p><h2>Recent readings</h2></div><select id="chart-metric"><option value="temperature">Temperature</option><option value="humidity">Humidity</option></select></div><svg id="chart" viewBox="0 0 700 220" role="img" aria-label="Recent readings chart"></svg><p id="chart-empty" class="muted"></p></section>
+    <div class="columns"><section class="panel"><div class="panel-title"><div><p class="eyebrow">WATCHLIST</p><h2>Alarm rules</h2></div></div><form id="rule-form"><select name="metric"><option value="temperature">Temperature</option><option value="humidity">Humidity</option></select><select name="operator"><option value="above">Above</option><option value="below">Below</option></select><input name="threshold" type="number" step="any" required placeholder="Threshold" aria-label="Threshold"><button>Add rule</button></form><div id="rules" class="list"></div></section><section class="panel"><div class="panel-title"><div><p class="eyebrow">EVENTS</p><h2>Alarms</h2></div><button id="enable-alerts" class="secondary">Enable browser alerts</button></div><p id="alert-help" class="muted">Alerts work while this dashboard is open.</p><div id="alarms" class="list"></div></section></div>
+    <section class="panel"><div class="panel-title"><div><p class="eyebrow">LOCAL SOURCE</p><h2>Connection</h2></div><div><button id="discover-dps" class="secondary" hidden>Inspect sensor data points</button> <button id="check-device" class="secondary">Check sensor now</button></div></div><p id="device-help" class="muted">Configure a local sensor or bridge to use physical readings.</p><pre id="device"></pre></section>
+    <section class="panel export"><div><p class="eyebrow">YOUR DATA</p><h2>Export history</h2><p>Download stored readings as CSV. Values are snapshots collected by this backend.</p></div><a id="export" class="button" href="/api/export.csv">Download CSV</a></section>
+  </main><footer>TempmoX · Data freshness is shown above. This page refreshes automatically.</footer>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+firmware/secrets.yaml
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Dependencies and build output
+node_modules/
+backend/.python_packages/
+__pycache__/
+dist/
+build/
+coverage/
+
+# Runtime data and exports
+*.log
+logs/
+data/
+exports/
+*.sqlite
+*.sqlite3
+*.db
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
